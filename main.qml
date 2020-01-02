@@ -82,22 +82,22 @@ ApplicationWindow {
 
         readonly property string media_info:
             (hasVideo) // video case
-            ? (((metaData.videoCodec !== undefined) && (metaData.videoBitRate !== undefined))
-               ? qsTr("%1 - %L2kb/s").arg(metaData.videoCodec).arg(metaData.videoBitRate/1000).toFixed(0)
-               : (metaData.videoCodec !== undefined)
+            ? (((typeof(metaData.videoCodec) === "string") && (typeof(metaData.videoBitRate) === "number"))
+               ? qsTr("%1 - %L2kb/s").arg(metaData.videoCodec).arg((metaData.videoBitRate/1000).toFixed(0))
+               : (typeof(metaData.videoCodec) === "string")
                  ? qsTr("%1").arg(metaData.videoCodec)
                  : ""
-                   || (metaData.videoBitRate !== undefined)
-                   ? qsTr("%L1kb/s").arg(metaData.videoBitRate/1000).toFixed(0)
+                   || (typeof(metaData.videoBitRate) === "number")
+                   ? qsTr("%L1kb/s").arg((metaData.videoBitRate/1000).toFixed(0))
                    : "")
             //audio case
-            : ((metaData.audioCodec !== undefined) && (metaData.audioBitRate !== undefined))
-              ? qsTr("%1 - %L2kb/s").arg(metaData.audioCodec).arg(metaData.audioBitRate/1000).toFixed(0)
-              : (metaData.audioCodec !== undefined)
+            : ((typeof(metaData.audioCodec) === "string") && (typeof(metaData.audioBitRate) === "number"))
+              ? qsTr("%1 - %L2kb/s").arg(metaData.audioCodec).arg((metaData.audioBitRate/1000).toFixed(0))
+              : (typeof(metaData.audioCodec) === "string")
                 ? qsTr("%1").arg(metaData.audioCodec)
                 : ""
-                  || (metaData.audioBitRate !== undefined)
-                  ? qsTr("%L1kb/s").arg(metaData.audioBitRate/1000).toFixed(0)
+                  || (typeof(metaData.audioBitRate) === "number")
+                  ? qsTr("%L1kb/s").arg((metaData.audioBitRate/1000).toFixed(0))
                   : "";
     }
 }
