@@ -52,7 +52,7 @@ ApplicationWindow {
 
     Video {
         id:                          video;
-        source:                      "https://www.radiantmediaplayer.com/media/bbb-360p.mp4";
+        source:                      "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4";
         anchors.fill:                parent;
         autoPlay:                    true;
         MouseArea {
